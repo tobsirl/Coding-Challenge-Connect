@@ -1,1 +1,1 @@
-# Coding-Challenge-Connect4
+# Coding Challenge: Connect 4
