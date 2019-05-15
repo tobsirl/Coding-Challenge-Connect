@@ -1,0 +1,21 @@
+{
+  "name": "Coding-Challenge-Connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobsirl/Coding-Challenge-Connect.git"
+  },
+  "keywords": [],
+  "author": "Paul Tobin <tobster111@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tobsirl/Coding-Challenge-Connect/issues"
+  },
+  "homepage": "https://github.com/tobsirl/Coding-Challenge-Connect#readme"
+}
