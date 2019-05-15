@@ -1,7 +1,18 @@
 const GameState = require('../models/gameState');
 
 exports.getGameState = (req, res, next) => {
-  res.json({ message: 'Hi' });
+  const createEmptyTable = () =>
+    new Array(6).fill(null).map(() => new Array(9).fill(null));
+
+  let board = createEmptyTable();
+  res.json({
+    player1: 1,
+    player2: 2,
+    currentPlayer: null,
+    board: board,
+    gameOver: false,
+    message: ''
+  });
 };
 
 exports.saveGameState = (req, res, next) => {
@@ -19,6 +30,7 @@ exports.saveGameState = (req, res, next) => {
     gameOver,
     message
   );
+  console.log(gameState);
   gameState.save();
 };
 

@@ -34,6 +34,7 @@ module.exports = class GameState {
       new Array(6).fill(null).map(() => new Array(9).fill(null));
 
     this.board = createEmptyTable();
+    console.log(this.board);
   }
 
   save() {

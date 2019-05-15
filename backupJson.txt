@@ -1,0 +1,1 @@
+{"player1":1,"player2":2,"currentPlayer":null,"board":[[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null]],"gameOver":false,"message":""}
