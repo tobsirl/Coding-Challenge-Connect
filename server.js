@@ -1,5 +1,10 @@
-var express = require('express');
-var app = express();
+import express from 'express';
+const app = express();
+
+import routes from './routes/connect';
+
+// Add routes
+app.use('/users', routes);
 
 app.get('/', function(req, res) {
   res.send('Hello World');

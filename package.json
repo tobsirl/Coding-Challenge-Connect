@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -17,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/tobsirl/Coding-Challenge-Connect/issues"
   },
-  "homepage": "https://github.com/tobsirl/Coding-Challenge-Connect#readme"
+  "homepage": "https://github.com/tobsirl/Coding-Challenge-Connect#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4"
+  }
 }
