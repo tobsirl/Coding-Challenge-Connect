@@ -10,4 +10,6 @@ router.get('/savegame', gameController.saveGameState);
 
 router.get('/creategame', gameController.createNewGame);
 
+//router.post('/updatemessage', gameController.updatemessage);
+
 module.exports = router;

@@ -1,10 +1,6 @@
 const GameState = require('../models/gameState');
 
 exports.getGameState = (req, res, next) => {
-  const createEmptyTable = () =>
-    new Array(6).fill(null).map(() => new Array(9).fill(null));
-
-  let board = createEmptyTable();
   res.json({
     player1: 1,
     player2: 2,
@@ -35,5 +31,26 @@ exports.saveGameState = (req, res, next) => {
 };
 
 exports.createNewGame = (req, res, next) => {
-  gameState.initBoard();
+  const createEmptyTable = () =>
+    new Array(6).fill(null).map(() => new Array(9).fill(null));
+
+  let board = createEmptyTable();
+
+  const gameState = new GameState({
+    player1: 1,
+    player2: 2,
+    currentPlayer: null,
+    board: board,
+    gameOver: false,
+    message: ''
+  });
+  res.json({ gameState });
+};
+
+exports.updateBoard = (req, res, next) => {};
+
+exports.updateMessage = (req, res, next) => {
+  const updatedMessage = req.body;
+
+  gameState.updateToken();
 };

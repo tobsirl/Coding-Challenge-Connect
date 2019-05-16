@@ -49,4 +49,8 @@ module.exports = class GameState {
   static fetchAll(cb) {
     getGameStateFromFile(cb);
   }
+
+  updateToken() {
+    
+  }
 };
