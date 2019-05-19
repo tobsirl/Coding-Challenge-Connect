@@ -44,8 +44,14 @@ exports.playGame = (req, res, next) => {
   gameState.updateBoard(5);
   gameState.play(6);
   gameState.play(7);
+  gameState.play(7);
+  gameState.play(7);
+  gameState.play(7);
+  gameState.play(7);
+  gameState.play(7);
   gameState.checkAll(board);
   console.log(gameState);
+  console.log(gameState.checkAll(board));
   // gameState.save();
 
   // while (gameState.gameOver !== false) {

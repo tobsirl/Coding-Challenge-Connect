@@ -45,10 +45,32 @@ module.exports = class GameState {
       const { board } = this;
       for (let row = 5; row >= 0; row--) {
         if (!board[row][col]) {
-          board[row][col] = this.player2;
+          board[row][col] = this.currentPlayer;
           break;
         }
       }
+
+      // check status of board
+
+      const result = this.checkAll(board);
+      if (result === this.player1) {
+        this.board = board;
+        this.gameOver = true;
+        this.message = 'Player 1 wins!';
+      } else if (result === this.player2) {
+        this.board = board;
+        this.gameOver = true;
+        this.message = 'Player 2 wins!';
+      } else if (result === 'draw') {
+        this.board = board;
+        this.gameOver = true;
+        this.message = 'Draw game.';
+      } else {
+        this.board = board;
+        this.currentPlayer = this.togglePlayer();
+      }
+    } else {
+      this.message = 'Game over. Please start a new game.';
     }
   }
 
