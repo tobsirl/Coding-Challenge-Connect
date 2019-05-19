@@ -51,7 +51,6 @@ module.exports = class GameState {
       }
 
       // check status of board
-
       const result = this.checkAll(board);
       if (result === this.player1) {
         this.board = board;

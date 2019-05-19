@@ -35,13 +35,17 @@ exports.playGame = (req, res, next) => {
 
   const board = createEmptyTable();
 
-  const gameState = new GameState(1, 2, null, board, false, '');
+  const gameState = new GameState(1, 2, 1, board, false, '');
 
   gameState.updateMessage('Hi there2sdf');
   gameState.updatePlayer1(1);
   gameState.updatePlayer2(2);
   gameState.updateBoard(4);
   gameState.updateBoard(5);
+  gameState.play(1);
+  gameState.play(0);
+  gameState.play(1);
+  gameState.play(0);
   gameState.play(6);
   gameState.play(7);
   gameState.play(7);
