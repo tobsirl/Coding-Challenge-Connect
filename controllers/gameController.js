@@ -18,7 +18,7 @@ exports.saveGameState = (req, res, next) => {
   const board = req.body.board;
   const gameOver = req.body.gameOver;
   const message = req.body.message;
-  const gameState = new GameState(
+  let gameState = new GameState(
     player1,
     player2,
     currentPlayer,
@@ -30,27 +30,39 @@ exports.saveGameState = (req, res, next) => {
   gameState.save();
 };
 
-exports.createNewGame = (req, res, next) => {
+exports.playGame = (req, res, next) => {
   const createEmptyTable = () =>
-    new Array(6).fill(null).map(() => new Array(9).fill(null));
-
+  new Array(6).fill(0).map(() => new Array(9).fill(0));
+  
   let board = createEmptyTable();
+  
+  const gameState = new GameState(1, 2, null, board, false, '');
 
-  const gameState = new GameState({
-    player1: 1,
-    player2: 2,
-    currentPlayer: null,
-    board: board,
-    gameOver: false,
-    message: ''
-  });
+  gameState.updateMessage('Hi there2sdf');
+  gameState.updatePlayer1(1);
+  gameState.updatePlayer2(2);
+  gameState.updateBoard(4);
+  console.log(gameState);
+  //gameState.save();
+  
+
+
+  while(gameState.gameOver !== false) {
+
+   }
+  gameState.updateBoard(1)
   res.json({ gameState });
+
 };
 
-exports.updateBoard = (req, res, next) => {};
+exports.updateBoard = (req, res, next) => {
+  const item = GameState();
+  console.log(item);
+  res.json(item);
+};
 
 exports.updateMessage = (req, res, next) => {
-  const updatedMessage = req.body;
-
-  gameState.updateToken();
+  console.log(req.body);
+  res.json({ requestbody: req.body });
+  //GameState.message = req.body;
 };

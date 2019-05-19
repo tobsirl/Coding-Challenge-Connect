@@ -37,6 +37,24 @@ module.exports = class GameState {
     console.log(this.board);
   }
 
+  togglePlayer() {
+    return this.currentPlayer === this.player1 ? this.player2 : this.player1;
+  }
+
+  play(col) {
+    if (!this.gameOver) {
+      let board = this.board;
+      for (let row = 5; row >= 0; row--) {
+        if (!board[row][col]) {
+          board[row][col] = this.currentPlayer;
+          break;
+        }
+      }
+
+      
+    }
+  }
+
   save() {
     getGameStateFromFile(gameState => {
       gameState.push(this);
@@ -50,7 +68,32 @@ module.exports = class GameState {
     getGameStateFromFile(cb);
   }
 
-  updateToken() {
-    
+  getState() {
+    return { test: test };
+  }
+
+  updateMessage(message) {
+    this.message = message;
+  }
+
+  updatePlayer1(player1) {
+    this.player1 = player1;
+  }
+
+  updatePlayer2(player2) {
+    this.player2 = player2;
+  }
+
+  updateBoard(c) {
+    for (let r = 5; r >= 0; r--) {
+      if (!this.board[r][c]) {
+        this.board[r][c] = this.player1;
+        break;
+      }
+    }
+  }
+
+  getBoard() {
+    return this.board;
   }
 };

@@ -8,8 +8,10 @@ router.get('/getgame', gameController.getGameState);
 
 router.get('/savegame', gameController.saveGameState);
 
-router.get('/creategame', gameController.createNewGame);
+router.get('/playgame', gameController.playGame);
 
-//router.post('/updatemessage', gameController.updatemessage);
+router.post('/updatemessage', gameController.updateMessage);
+
+router.get('/updateboard', gameController.updateBoard);
 
 module.exports = router;
