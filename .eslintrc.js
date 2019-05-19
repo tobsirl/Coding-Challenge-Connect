@@ -23,6 +23,7 @@ module.exports = {
     'arrow-body-style': 1,
     'no-console': 0,
     'no-use-before-define': 'warn',
-    'no-plusplus': 'off'
+    'no-plusplus': 'off',
+    'class-methods-use-this': 'off'
   }
 };

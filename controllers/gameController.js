@@ -44,12 +44,13 @@ exports.playGame = (req, res, next) => {
   gameState.updateBoard(5);
   gameState.play(6);
   gameState.play(7);
+  gameState.checkAll(board);
   console.log(gameState);
   // gameState.save();
 
-  while (gameState.gameOver !== false) {
-    gameState.play();
-  }
+  // while (gameState.gameOver !== false) {
+  //   gameState.play();
+  // }
   gameState.updateBoard(1);
   res.json({ gameState });
 };

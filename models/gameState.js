@@ -94,7 +94,7 @@ module.exports = class GameState {
   checkVertical(board) {
     // Check only if row is 4 or greater
     for (let row = 4; row < 6; row++) {
-      for (let col = 0; col < 7; col++) {
+      for (let col = 0; col < 9; col++) {
         if (board[row][col]) {
           if (
             board[row][col] === board[row - 1][col]
@@ -102,7 +102,7 @@ module.exports = class GameState {
             && board[row][col] === board[row - 3][col]
             && board[row][col] === board[row - 4][col]
           ) {
-            return this.board[row][col];
+            return board[row][col];
           }
         }
       }
@@ -120,10 +120,67 @@ module.exports = class GameState {
             && board[row][col] === board[row][col + 3]
             && board[row][col] === board[row][col + 4]
           ) {
-            return this.board[row][col];
+            return board[row][col];
           }
         }
       }
     }
+  }
+
+  checkDiagonalRight(board) {
+    // Check only if row is 4 or greater AND column is 4 or less
+    for (let row = 4; row < 6; row++) {
+      for (let col = 0; col < 5; col++) {
+        if (board[row][col]) {
+          if (
+            board[row][col] === board[row - 1][col + 1]
+            && board[row][col] === board[row - 2][col + 2]
+            && board[row][col] === board[row - 3][col + 3]
+            && board[row][col] === board[row - 4][col + 4]
+          ) {
+            return board[row][col];
+          }
+        }
+      }
+    }
+  }
+
+  checkDiagonalLeft(board) {
+    // Check only if row is 4 or greater AND column is 4 or greater
+    for (let row = 4; row < 6; row++) {
+      for (let col = 4; col < 9; col++) {
+        if (board[row][col]) {
+          if (
+            board[row][col] === board[row - 1][col - 1]
+            && board[row][col] === board[row - 2][col - 2]
+            && board[row][col] === board[row - 3][col - 3]
+            && board[row][col] === board[row - 4][col - 4]
+          ) {
+            return board[row][col];
+          }
+        }
+      }
+    }
+  }
+
+  checkDraw(board) {
+    for (let row = 0; row < 6; row++) {
+      for (let col = 0; col < 9; col++) {
+        if (board[row][col] === null) {
+          return null;
+        }
+      }
+    }
+    return 'draw';
+  }
+
+  checkAll(board) {
+    return (
+      this.checkVertical(board)
+      || this.checkDiagonalRight(board)
+      || this.checkDiagonalLeft(board)
+      || this.checkHorizontal(board)
+      || this.checkDraw(board)
+    );
   }
 };
