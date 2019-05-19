@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 
-const API = 'https://hn.algolia.com/api/v1/search?query=%27';
 class App extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    message: '' 
+  };
 
-    this.state = {
-      game: [],
-      board: [],
-      message: ''
-    };
-  }
-  // `http://localhost:3005/creategame`
   componentDidMount() {
     fetch(`http://localhost:3005/playgame`)
       .then(res => res.json())
       .then(responce => console.log(responce))
-      .then(data => this.setState({ game: data.gameState, board: data.board, message: data.message }))
+      .then(data =>
+        this.setState({
+          message: data.message
+        })
+      )
       .catch(err => console.log(err));
   }
 
@@ -35,9 +32,9 @@ class App extends Component {
         <table>
           <thead />
           <tbody>
-            {this.state.board.map((row, i) => (
+            {/* {this.state.board.map((row, i) => (
               <Row key={i} row={row} play={this.play} />
-            ))}
+            ))} */}
           </tbody>
         </table>
         <p className="message">{this.state.message}</p>
