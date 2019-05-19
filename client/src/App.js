@@ -6,20 +6,22 @@ class App extends Component {
     super(props);
 
     this.state = {
-      game: []
+      game: [],
+      board: [],
+      message: ''
     };
   }
   // `http://localhost:3005/creategame`
   componentDidMount() {
-    fetch(`http://localhost:3005/creategame`)
+    fetch(`http://localhost:3005/playgame`)
       .then(res => res.json())
       .then(responce => console.log(responce))
-      .then(data => this.setState({ game: data.hits }))
+      .then(data => this.setState({ game: data.gameState, board: data.board, message: data.message }))
       .catch(err => console.log(err));
   }
 
   render() {
-    console.log(this.game);
+    console.log(this.state.message);
     return (
       <div>
         <div
@@ -33,9 +35,9 @@ class App extends Component {
         <table>
           <thead />
           <tbody>
-            {/* {this.state.board.map((row, i) => (
+            {this.state.board.map((row, i) => (
               <Row key={i} row={row} play={this.play} />
-            ))} */}
+            ))}
           </tbody>
         </table>
         <p className="message">{this.state.message}</p>
