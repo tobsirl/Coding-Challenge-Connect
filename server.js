@@ -18,4 +18,4 @@ app.use(bodyParser.json());
 
 app.use(gameRoute);
 
-app.listen(3005, () => console.log(`Server started on 3005`));
+app.listen(3005, () => console.log('Server started on 3005'));

@@ -5,54 +5,51 @@ exports.getGameState = (req, res, next) => {
     player1: 1,
     player2: 2,
     currentPlayer: null,
-    board: board,
+    board,
     gameOver: false,
-    message: ''
+    message: '',
   });
 };
 
 exports.saveGameState = (req, res, next) => {
-  const player1 = req.body.player1;
-  const player2 = req.body.player2;
-  const currentPlayer = req.body.currentPlayer;
-  const board = req.body.board;
-  const gameOver = req.body.gameOver;
-  const message = req.body.message;
-  let gameState = new GameState(
+  const { player1 } = req.body;
+  const { player2 } = req.body;
+  const { currentPlayer } = req.body;
+  const { board } = req.body;
+  const { gameOver } = req.body;
+  const { message } = req.body;
+  const gameState = new GameState(
     player1,
     player2,
     currentPlayer,
     board,
     gameOver,
-    message
+    message,
   );
   console.log(gameState);
   gameState.save();
 };
 
 exports.playGame = (req, res, next) => {
-  const createEmptyTable = () =>
-  new Array(6).fill(0).map(() => new Array(9).fill(0));
-  
-  let board = createEmptyTable();
-  
+  const createEmptyTable = () => new Array(6).fill(0).map(() => new Array(9).fill(0));
+
+  const board = createEmptyTable();
+
   const gameState = new GameState(1, 2, null, board, false, '');
 
   gameState.updateMessage('Hi there2sdf');
   gameState.updatePlayer1(1);
   gameState.updatePlayer2(2);
   gameState.updateBoard(4);
+  gameState.updateBoard(5);
+  gameState.play(6);
+  gameState.play(7);
   console.log(gameState);
-  //gameState.save();
-  
+  // gameState.save();
 
-
-  while(gameState.gameOver !== false) {
-
-   }
-  gameState.updateBoard(1)
+  while (gameState.gameOver !== false) {}
+  gameState.updateBoard(1);
   res.json({ gameState });
-
 };
 
 exports.updateBoard = (req, res, next) => {
@@ -64,5 +61,5 @@ exports.updateBoard = (req, res, next) => {
 exports.updateMessage = (req, res, next) => {
   console.log(req.body);
   res.json({ requestbody: req.body });
-  //GameState.message = req.body;
+  // GameState.message = req.body;
 };
