@@ -91,7 +91,7 @@ module.exports = class GameState {
   }
 
   // Check board for win conditions
-  static checkVertical(board) {
+  checkVertical(board) {
     // Check only if row is 4 or greater
     for (let row = 4; row < 6; row++) {
       for (let col = 0; col < 7; col++) {
@@ -102,14 +102,14 @@ module.exports = class GameState {
             && board[row][col] === board[row - 3][col]
             && board[row][col] === board[row - 4][col]
           ) {
-            return board[row][col];
+            return this.board[row][col];
           }
         }
       }
     }
   }
 
-  static checkHorizontal(board) {
+  checkHorizontal(board) {
     // Check only if column is 3 or less
     for (let row = 0; row < 6; row++) {
       for (let col = 0; col < 5; col++) {
@@ -120,7 +120,7 @@ module.exports = class GameState {
             && board[row][col] === board[row][col + 3]
             && board[row][col] === board[row][col + 4]
           ) {
-            return board[row][col];
+            return this.board[row][col];
           }
         }
       }

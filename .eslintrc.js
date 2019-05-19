@@ -17,11 +17,12 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'no-unused-vars': 1,
+    'no-unused-vars': 'off',
     'no-underscore-dangle': 'off',
     'prefer-destructuring': 1,
     'arrow-body-style': 1,
     'no-console': 0,
-    'no-use-before-define': 'warn'
+    'no-use-before-define': 'warn',
+    'no-plusplus': 'off'
   }
 };

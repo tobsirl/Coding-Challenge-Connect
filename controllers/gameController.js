@@ -1,14 +1,14 @@
 const GameState = require('../models/gameState');
 
 exports.getGameState = (req, res, next) => {
-  res.json({
-    player1: 1,
-    player2: 2,
-    currentPlayer: null,
-    board,
-    gameOver: false,
-    message: '',
-  });
+  // res.json({
+  //   player1: 1,
+  //   player2: 2,
+  //   currentPlayer: null,
+  //   board,
+  //   gameOver: false,
+  //   message: '',
+  // });
 };
 
 exports.saveGameState = (req, res, next) => {
@@ -47,7 +47,9 @@ exports.playGame = (req, res, next) => {
   console.log(gameState);
   // gameState.save();
 
-  while (gameState.gameOver !== false) {}
+  while (gameState.gameOver !== false) {
+    gameState.play();
+  }
   gameState.updateBoard(1);
   res.json({ gameState });
 };
