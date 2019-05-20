@@ -7,7 +7,7 @@ module.exports = {
   extends: 'airbnb',
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
     ecmaFeatures: {
@@ -15,7 +15,7 @@ module.exports = {
     },
     ecmaVersion: 2018
   },
-  plugins: ['react'],
+  plugins: ['react', 'jest'],
   rules: {
     'no-unused-vars': 'off',
     'no-underscore-dangle': 'off',

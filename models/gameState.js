@@ -1,22 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
-const p = path.join(
-  path.dirname(process.mainModule.filename),
-  'data',
-  'gameState.json',
-);
-
-const getGameStateFromFile = (cb) => {
-  fs.readFile(p, (err, fileContent) => {
-    if (err) {
-      cb([]);
-    } else {
-      cb(JSON.parse(fileContent));
-    }
-  });
-};
-
 module.exports = class GameState {
   constructor(player1, player2, currentPlayer, board, gameOver, message) {
     this.player1 = player1;
@@ -45,7 +26,7 @@ module.exports = class GameState {
       const { board } = this;
       for (let row = 5; row >= 0; row--) {
         if (!board[row][col]) {
-          board[row][col] = this.currentPlayer;
+          board[row][col] = this.player2;
           break;
         }
       }
@@ -73,19 +54,6 @@ module.exports = class GameState {
     }
   }
 
-  save() {
-    getGameStateFromFile((gameState) => {
-      gameState.push(this);
-      fs.writeFile(p, JSON.stringify(gameState), (err) => {
-        console.log(err);
-      });
-    });
-  }
-
-  static fetchAll(cb) {
-    getGameStateFromFile(cb);
-  }
-
   updateMessage(message) {
     this.message = message;
   }
@@ -101,7 +69,7 @@ module.exports = class GameState {
   updateBoard(col) {
     for (let row = 5; row >= 0; row--) {
       if (!this.board[row][col]) {
-        this.board[row][col] = this.player1;
+        this.board[row][col] = this.currentPlayer;
         break;
       }
     }
