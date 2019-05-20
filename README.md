@@ -11,13 +11,17 @@ Name: Paul Tobin
 In the project directory
 ```bash
 npm install
+npm run dev
 ```
 Server runs on localhost:3005
 
 ### Client: cd in the client directory 
 ```bash
 npm install
+npm start
 ```
+Installing Jest in the main project directory introduced as issue with the react front, adding .env file with the SKIP_PREFLIGHT_CHECK=true gets past this problem
+
 ### Testing using Jest
 #### Currently working through [Testing JavaScript with Kent C. Dodds](https://testingjavascript.com)
 
