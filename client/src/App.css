@@ -1,33 +1,108 @@
-.App {
+body {
+  font-family: 'Lucida Sans Unicode';
+}
+
+h1 {
   text-align: center;
+  font-size: 30px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+table {
+  margin: 0 auto;
+  border-spacing: 0px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button {
+  background-color: #303030;
+  color: #fff;
+  height: 30px;
+  width: 120px;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover {
+  background-color: #104aeb;
+  color: #fff;
+  transition: background-color 0.5s, color 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cell {
+  height: 60px;
+  width: 60px;
+  background-color: #104aeb;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.cell:hover {
+  background-color: black;
+  color: #303030;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border: 1px solid #000;
+  border-radius: 100px;
+}
+
+.circles {
+  margin: -40px 0 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.red-sm {
+  background-color: red;
+}
+
+.yellow-sm {
+  background-color: yellow;
+}
+
+.message {
+  text-align: center;
+  font-size: 17px;
+}
+
+.current {
+  text-align: center;
+  font-size: 17px;
+}
+
+.white {
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+.red {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  border-radius: 100px;
+  transition: background-color 0.5s;
+}
+
+.yellow {
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+  border-radius: 100px;
+  transition: background-color 0.5s;
 }

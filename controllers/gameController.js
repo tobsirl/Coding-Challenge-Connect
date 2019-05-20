@@ -62,7 +62,7 @@ exports.playGame = (req, res, next) => {
   //   gameState.play();
   // }
   gameState.updateBoard(1);
-  res.json({ gameState });
+  res.json(gameState);
 };
 
 exports.updateBoard = (req, res, next) => {

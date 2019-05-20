@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class App extends Component {
   state = {
-    message: '' 
+    message: '',
+    board: [],
+    currentPlayer: ''
   };
 
   componentDidMount() {
     fetch(`http://localhost:3005/playgame`)
       .then(res => res.json())
-      .then(responce => console.log(responce))
-      .then(data =>
+      .then(response =>
         this.setState({
-          message: data.message
+          message: response.message,
+          board: response.board,
+          currentPlayer: response.currentPlayer
         })
       )
       .catch(err => console.log(err));
   }
 
+  play = column => {
+    console.log('Click here', column);
+  };
+
   render() {
-    console.log(this.state.message);
+    console.log(this.state.currentPlayer);
     return (
       <div>
         <div
@@ -32,11 +40,12 @@ class App extends Component {
         <table>
           <thead />
           <tbody>
-            {/* {this.state.board.map((row, i) => (
+            {this.state.board.map((row, i) => (
               <Row key={i} row={row} play={this.play} />
-            ))} */}
+            ))}
           </tbody>
         </table>
+        <p className="current">{`Player ${this.state.currentPlayer}, Please place your token` }</p>
         <p className="message">{this.state.message}</p>
       </div>
     );
@@ -47,14 +56,14 @@ class App extends Component {
 const Row = ({ row, play }) => {
   return (
     <tr>
-      {/* {row.map((cell, i) => (
-        <Cell key={i} value={cell} columnIndex={i} play={play} />
-      ))} */}
+      {row.map((cell, i) => (
+        <Cell key={i} value={cell} column={i} play={play} />
+      ))}
     </tr>
   );
 };
 
-const Cell = ({ value, columnIndex, play }) => {
+const Cell = ({ value, column, play }) => {
   let color = 'white';
   if (value === 1) {
     color = 'red';
@@ -67,7 +76,7 @@ const Cell = ({ value, columnIndex, play }) => {
       <div
         className="cell"
         onClick={() => {
-          play(columnIndex);
+          play(column);
         }}
       >
         <div className={color} />
