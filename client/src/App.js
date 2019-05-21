@@ -25,6 +25,19 @@ class App extends Component {
     console.log('Click here', column);
   };
 
+  newGame = () => {
+    fetch(`http://localhost:3005/playgame`)
+      .then(res => res.json())
+      .then(response =>
+        this.setState({
+          message: response.message,
+          board: response.board,
+          currentPlayer: response.currentPlayer
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
   render() {
     console.log(this.state.currentPlayer);
     return (
@@ -32,7 +45,7 @@ class App extends Component {
         <div
           className="button"
           onClick={() => {
-            this.initBoard();
+            this.newGame();
           }}
         >
           New Game
@@ -45,7 +58,9 @@ class App extends Component {
             ))}
           </tbody>
         </table>
-        <p className="current">{`Player ${this.state.currentPlayer}, Please place your token` }</p>
+        <p className="current">{`Player ${
+          this.state.currentPlayer
+        }, Please place your token`}</p>
         <p className="message">{this.state.message}</p>
       </div>
     );

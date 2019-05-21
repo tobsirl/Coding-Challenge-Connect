@@ -1,5 +1,5 @@
 # Coding Challenge: 5 in a Row
-Name: Paul Tobin
+Name: Paul Tobin - [GitHub](https://github.com/tobsirl)
 
 #### The project uses a Node js backend with React js on the frontend.
 #### State is stored on the backend server using a GameState Class, this state is made available to the frontend through api calls.
@@ -26,10 +26,10 @@ Installing Jest in the main project directory introduced as issue with the react
 #### Currently working through [Testing JavaScript with Kent C. Dodds](https://testingjavascript.com)
 
 ## API Design
-| HTTP Verb | Path     | Public/Private | Description |
-| -- | -- |   --   |  --   |     
-| GET:| /playgame |Public  | Play a new game |
-| POST:| /playgame |Public  | Update the board |
+| HTTP Verb | Path      | Public/Private | Description      |
+|-----------|-----------|----------------|------------------|
+| GET:      | /playgame | Public         | Play a new game  |
+| POST:     | /playgame | Public         | Update the board |
 
 #### Example of the json
 ```json
